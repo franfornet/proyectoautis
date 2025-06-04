@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PROYECTOS</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #fff;
+    color: #000;
+  }
+  h1 {
+    color: #000;
+  }
+  .proyecto {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+  .proyecto h3 {
+    margin: 0;
+  }
+  .proyecto p {
+    margin: 2px 0;
+  }
+  .proyecto button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  .proyecto button:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+<h1>Proyectos</h1>
+<div id="proyectosContainer"></div>
+
+<script>
+  
+  const proyectos = [
+    {
+      id: 1,
+      nombre: 'Fran',
+      estado: 'Sin definir',
+      descripcion: '',
+      actualizado: '30/5/2025'
+    },
+    {
+      id: 2,
+      nombre: 'Demo Project',
+      estado: 'On track',
+      descripcion: 'Demo Project',
+      actualizado: '30/5/2025'
+    },
+    {
+      id: 3,
+      nombre: 'Autis Project',
+      estado: 'On track',
+      descripcion: 'Scrum Project',
+      actualizado: '30/5/2025'
+    },
+    {
+      id: 4,
+      nombre: 'Proyecto 1',
+      estado: 'Acabado',
+      descripcion: '',
+      actualizado: '30/5/2025'
+    }
+  ];
+
+
+  console.log('Proyectos JSON:', JSON.stringify(proyectos, null, 2));
+
+
+  const contenedor = document.getElementById('proyectosContainer');
+  proyectos.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'proyecto';
+    div.innerHTML = `
+      <h3>${p.nombre}</h3>
+      <p><strong>Estado:</strong> ${p.estado}</p>
+      <p><strong>Descripción:</strong> ${p.descripcion ? p.descripcion : 'No disponible'}</p>
+      <p><strong>Actualizado:</strong> ${p.actualizado}</p>
+      <button onclick="verTareas(${p.id})">Ver Tareas</button>
+    `;
+    contenedor.appendChild(div);
+  });
+
+ 
+  function verTareas(id) {
+    sessionStorage.setItem('proyectoSeleccionado', id);
+    alert('Proyecto seleccionado: ' + id);
+    console.log('Proyecto seleccionado:', id);
+  }
+</script>
+</body>
+</html>

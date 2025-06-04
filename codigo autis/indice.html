@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        fetch('http://localhost:8080/api/v3/projects', {
+    headers: {
+    'Authorization': 'Basic ' + btoa('apikey:7452b83ac6c928100e9e6f7871fc595815677ec4759e581956e40b1ebbe1d766'
+    )
+    }
+    })
+    .then(response => response.json())
+    .then(data => {
+    // procesar los datos de proyectos
+    console.log(data);
+    });
+    </script>
+</body>
+</html> 
